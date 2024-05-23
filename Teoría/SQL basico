@@ -16,3 +16,16 @@ SELECT <COLUMNS> FROM TABLE_1 WHERE <predicate> ;
 
 Traemos tabla
 SELECT title, Director, Writer FROM FilmLocations;
+
+COUNT
+SELECT COUNT(*) FROM FilmLocations;
+SELECT COUNT(Locations) FROM FilmLocations WHERE Writer="James Cameron";
+DISTINCT
+SELECT DISTINCT Title FROM FilmLocations;
+MEZCLA COUNT Y DISTINCT
+SELECT COUNT(DISTINCT ReleaseYear) FROM FilmLocations WHERE ProductionCompany="Warner Bros. Pictures";
+
+LIMIT
+
+SELECT * FROM FilmLocations LIMIT 25;
+SELECT * FROM FilmLocations LIMIT 15 OFFSET 10;
