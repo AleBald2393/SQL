@@ -40,3 +40,9 @@ df.to_sql("CHICAGO_PUBLIC_SCHOOLS_DATA", con, if_exists='replace', index=False, 
 #cual es el top 5 de las escuelas que no fueron
 %sql select Name_of_School, Average_Student_Attendance from CHICAGO_PUBLIC_SCHOOLS_DATA \
     order by Average_Student_Attendance limit 5 
+
+  #utilizar la función replace, donde se quiere quitar el porcentaje en los valores de una columna
+%sql SELECT Name_of_School, REPLACE(Average_Student_Attendance, '%', '') \
+     from CHICAGO_PUBLIC_SCHOOLS_DATA \
+     order by Average_Student_Attendance \
+     LIMIT 5
