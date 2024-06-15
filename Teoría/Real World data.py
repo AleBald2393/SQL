@@ -13,3 +13,6 @@ import pandas
 
 df = pandas.read_csv("https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/FinalModule_Coursera_V5/data/ChicagoPublicSchools.csv")
 df.to_sql("CHICAGO_PUBLIC_SCHOOLS_DATA", con, if_exists='replace', index=False, method="multi")
+
+# type in your query to retrieve list of all tables in the database
+%sql SELECT name FROM sqlite_master WHERE type="table"
