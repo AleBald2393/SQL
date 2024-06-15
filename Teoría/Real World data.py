@@ -16,3 +16,9 @@ df.to_sql("CHICAGO_PUBLIC_SCHOOLS_DATA", con, if_exists='replace', index=False, 
 
 # type in your query to retrieve list of all tables in the database
 %sql SELECT name FROM sqlite_master WHERE type="table"
+
+# query para saber cuantas columnas hay
+%sql SELECT count(name) FROM PRAGMA_TABLE_INFO('CHICAGO_PUBLIC_SCHOOLS_DATA');
+
+# type in your query to retrieve all column names in the SCHOOLS table along with their datatypes and length
+%sql SELECT name,type,length(type) FROM PRAGMA_TABLE_INFO('CHICAGO_PUBLIC_SCHOOLS_DATA');
