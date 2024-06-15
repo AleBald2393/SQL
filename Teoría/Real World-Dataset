@@ -38,3 +38,9 @@ import seaborn as sns
 
 income_vs_hardship = %sql SELECT per_capita_income_, hardship_index FROM chicago_socioeconomic_data;
 plot = sns.jointplot(x='per_capita_income_',y='hardship_index', data=income_vs_hardship.DataFrame())
+
+# Which Schools have Average Student Attendance lower than 70%?
+%sql SELECT Name_of_School, Average_Student_Attendance  \
+     from CHICAGO_PUBLIC_SCHOOLS_DATA \
+     where CAST ( REPLACE(Average_Student_Attendance, '%', '') AS DOUBLE ) < 70 \
+     order by Average_Student_Attendance
