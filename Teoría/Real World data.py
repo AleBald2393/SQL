@@ -25,3 +25,10 @@ df.to_sql("CHICAGO_PUBLIC_SCHOOLS_DATA", con, if_exists='replace', index=False, 
 
 #Cuantas Elementary schools hay en la data
 %sql SELECT COUNT(*) FROM CHICAGO_PUBLIC_SCHOOLS_DATA Where "Elementary, Middle, or High School"='ES'
+
+#Cual es el dato mayor
+%sql SELECT MAX(SAFETY_SCORE) FROM CHICAGO_PUBLIC_SCHOOLS_DATA;
+
+#cual es el colegio con el dato mayor
+%sql select Name_of_School, Safety_Score from CHICAGO_PUBLIC_SCHOOLS_DATA where \
+  Safety_Score= (select MAX(Safety_Score) from CHICAGO_PUBLIC_SCHOOLS_DATA)
