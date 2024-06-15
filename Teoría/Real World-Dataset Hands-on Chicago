@@ -66,3 +66,14 @@ Get the 5 Community Areas with the least total College Enrollment sorted in asce
 FROM CHICAGO_PUBLIC_SCHOOLS_DATA  where safety_score !='None' \
 ORDER BY safety_score \
 LIMIT 5
+
+#Get the hardship index for the community area of the school which has College Enrollment of 4368
+%%sql 
+select hardship_index from CENSUS_DATA CD, CHICAGO_PUBLIC_SCHOOLS_DATA CPS 
+where CD.community_area_number = CPS.community_area_number 
+and college_enrollment = 4368
+
+#Get the hardship index for the community area which has the highest value for College Enrollment
+%sql select community_area_number, community_area_name, hardship_index from CENSUS_DATA \
+   where community_area_number in \
+   ( select community_area_number from CHICAGO_PUBLIC_SCHOOLS_DATA order by college_enrollment desc limit 1 )
