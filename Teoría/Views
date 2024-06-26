@@ -1,3 +1,35 @@
+et's create a view called EMPSALARY to display salary along with some basic sensitive data of employees from the HR database.
+
 CREATE VIEW EMPSALARY AS
 SELECT EMP_ID, F_NAME, L_NAME, B_DATE, SEX, SALARY
 FROM EMPLOYEES;
+
+
+SELECT * FROM EMPSALARY;
+
+Assume that the EMPSALARY view we created in Task 1 doesn't contain enough salary information, such as max/min salary and the job title of the employees. For this, we need to get information from other tables in the database. You need all columns from EMPLOYEES table used above, except for SALARY.
+
+CREATE OR REPLACE VIEW EMPSALARY AS
+SELECT EMP_ID, F_NAME, L_NAME, B_DATE, SEX, JOB_TITLE,
+MIN_SALARY, MAX_SALARY
+FROM EMPLOYEES, JOBS
+WHERE EMPLOYEES.JOB_ID = JOBS.JOB_IDENT;
+
+SELECT * FROM EMPSALARY;
+
+#PARA BORRAR
+DROP VIEW EMPSALARY;
+
+PRACTICE
+
+CREATE VIEW EMP_DEPT AS
+SELECT EMP_ID, F_NAME, L_NAME, DEP_ID
+FROM EMPLOYEES;
+
+#modify
+CREATE OR REPLACE VIEW EMP_DEPT AS
+SELECT EMP_ID, F_NAME, L_NAME, DEP_NAME
+FROM EMPLOYEES, DEPARTMENTS
+WHERE EMPLOYEES.DEP_ID = DEPARTMENTS.DEPT_ID_DEP;
+
+DROP VIEW EMPSALARY;
