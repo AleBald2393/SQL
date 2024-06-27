@@ -71,3 +71,13 @@ SELECT E.F_NAME, E.L_NAME, D.DEPT_ID_DEP, D.DEP_NAME
 from EMPLOYEES AS E
 RIGHT OUTER JOIN DEPARTMENTS AS D
 ON E.DEP_ID=D.DEPT_ID_DEP AND E.SEX = 'M';
+
+A join combines the rows from two or more tables based on a relationship between certain columns in these tables.
+
+To combine data from three or more different tables, you simply add new joins to the SQL statement. 
+
+There are two types of joins: inner join and outer join; and three types of outer joins: left outer join, right outer join, and full outer join. 
+
+The most common type of join is the inner join, which matches the results from two tables and returns the selected elements from each table, only where corresponding elements in both the tables are the same.
+
+You can use an alias as shorthand for a table or column name.
