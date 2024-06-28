@@ -1,0 +1,8 @@
+Q1: Write and execute a SQL query to list the school names, community names and average attendance for communities with a hardship index of 98.
+
+SELECT S.NAME_OF_SCHOOL, S.COMMUNITY_AREA_NAME, S.AVERAGE_STUDENT_ATTENDANCE 
+FROM chicago_public_schools AS S 
+LEFT OUTER JOIN chicago_socioeconomic_data AS D 
+ON S.COMMUNITY_AREA_NAME = D.COMMUNITY_AREA_NAME 
+WHERE D.HARDSHIP_INDEX=98;
+
