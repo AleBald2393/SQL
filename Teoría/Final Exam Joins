@@ -6,3 +6,9 @@ LEFT OUTER JOIN chicago_socioeconomic_data AS D
 ON S.COMMUNITY_AREA_NAME = D.COMMUNITY_AREA_NAME 
 WHERE D.HARDSHIP_INDEX=98;
 
+Q2: Write and execute a SQL query to list all crimes that took place at a school. Include case number, crime type and community name.
+SELECT C.CASE_NUMBER, C.PRIMARY_TYPE, D.COMMUNITY_AREA_NAME
+FROM chicago_crime AS C
+LEFT OUTER JOIN chicago_socioeconomic_data AS D 
+ON C.COMMUNITY_AREA_NUMBER = D.COMMUNITY_AREA_NUMBER 
+WHERE C.LOCATION_DESCRIPTION LIKE "%SCHOOL%";
