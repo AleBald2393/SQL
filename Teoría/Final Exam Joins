@@ -19,3 +19,9 @@ SELECT NAME_OF_SCHOOL AS School_Name, Safety_Icon AS Safety_Rating, Family_Invol
 Environment_Icon AS	Environment_Rating, Instruction_Icon AS	Instruction_Rating, Leaders_Icon AS	Leaders_Rating,
 Teachers_Icon AS Teachers_Rating
 FROM chicago_public_schools;
+
+Write the structure of a query to create or replace a stored procedure called UPDATE_LEADERS_SCORE that takes a in_School_ID parameter as an integer and a in_Leader_Score parameter as an integer.
+DELIMITER //
+CREATE OR PROCEDURE UPDATE_LEADERS_SCORE (IN School_ID INTEGER, IN Leaders_Score INTEGER)
+END //
+DELIMITER;
